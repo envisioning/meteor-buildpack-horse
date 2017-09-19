@@ -157,12 +157,6 @@ if [ -z "$METEOR_NPM" ] || [ -z "$METEOR_NODE" ] ; then
   exit 1
 fi
 
-if [ -n "$NPM_REGISTRY" ]; then
-  echo "Found NPM_REGISTRY, adding to npm config";
-  $METEOR_NPM config set "$NPM_REGISTRY"
-fi
-
-
 # Copy node into place for production.
 NODE="$COMPILE_DIR"/bin/node
 cp "$METEOR_NODE" "$NODE"
@@ -173,6 +167,12 @@ PATH="$METEOR_DIR/.meteor:`dirname $METEOR_NPM`:$COMPILE_DIR/bin:$PATH"
 
 echo "-----> Using node: `$NODE --version`"
 echo "----->    and npm: `$METEOR_NPM --version`"
+
+
+if [ -n "$NPM_REGISTRY" ]; then
+  echo "Found NPM_REGISTRY, adding to npm config";
+  $METEOR_NPM config set "$NPM_REGISTRY"
+fi
 
 # If we use npm on root, run npm install.  Don't use `--production` here, as we
 # may need devDependencies (e.g. webpack) in order to build the meteor app.
