@@ -177,6 +177,20 @@ fi
 # If we use npm on root, run npm install.  Don't use `--production` here, as we
 # may need devDependencies (e.g. webpack) in order to build the meteor app.
 if [ -e "$APP_SOURCE_DIR"/package.json ]; then
+  cd "$APP_SOURCE_DIR"/packages/tdb-elasticsearch
+  echo "Installing dependendencies for tdb-elasticsearch";
+  $METEOR_NPM install
+
+  cd "$APP_SOURCE_DIR"/packages/tdb-constants
+  echo "Installing dependendencies for tdb-constants";
+  $METEOR_NPM install
+
+  cd "$APP_SOURCE_DIR"/packages/tdb-reports
+  echo "Installing dependendencies for tdb-reports";
+  $METEOR_NPM install
+
+  cd "$APP_SOURCE_DIR"
+  echo "Running npm install...";
   $METEOR_NPM install
 fi
 
