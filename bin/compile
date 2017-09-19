@@ -158,7 +158,8 @@ if [ -z "$METEOR_NPM" ] || [ -z "$METEOR_NODE" ] ; then
 fi
 
 if [ -n "$NPM_REGISTRY" ]; then
-  $METEOR_NPM config set "${NPM_REGISTRY}"
+  echo "Found NPM_REGISTRY, adding to npm config";
+  $METEOR_NPM config set "$NPM_REGISTRY"
 fi
 
 
