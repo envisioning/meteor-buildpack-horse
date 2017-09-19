@@ -157,6 +157,11 @@ if [ -z "$METEOR_NPM" ] || [ -z "$METEOR_NODE" ] ; then
   exit 1
 fi
 
+if [ -n "$NPM_REGISTRY" ]; then
+  $METEOR_NPM config set "${NPM_REGISTRY}"
+fi
+
+
 # Copy node into place for production.
 NODE="$COMPILE_DIR"/bin/node
 cp "$METEOR_NODE" "$NODE"
