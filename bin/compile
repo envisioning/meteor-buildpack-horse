@@ -56,7 +56,7 @@ fi
 
 # Try "$APP_SOURCE_DIR/app/" if meteor app isn't there (the "Iron scaffolding
 # tool" default).
-if [ ! -d "$APP_SOURCE_DIR/.meteor" ] && [ -d "$APP_SOURCE_DIR/app/.meteor" ]; then
+if [ ! -d "$APP_SOURCE_DIR/.meteor" ] && [ -d "$APP_SOURCE_DIR/src/.meteor" ]; then
   APP_SOURCE_DIR="$APP_SOURCE_DIR/src/"
 fi
 if [ ! -d "$APP_SOURCE_DIR/.meteor" ]; then
@@ -172,7 +172,6 @@ echo "----->    and npm: `$METEOR_NPM --version`"
 # may need devDependencies (e.g. webpack) in order to build the meteor app.
 if [ -e "$APP_SOURCE_DIR"/package.json ]; then
   $METEOR_NPM install
-  $METEOR_NPM run install-deps
 fi
 
 # Related to https://github.com/meteor/meteor/issues/2796 and
