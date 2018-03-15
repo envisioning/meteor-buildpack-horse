@@ -104,8 +104,6 @@ else
   curl -sS "https://install.meteor.com/" | HOME="$METEOR_DIR" /bin/sh
 fi
 
-npm install -g yarn
-
 # Function to execute meteor with proper HOME.
 function METEOR {
   ARGS=$@
@@ -180,6 +178,10 @@ fi
 # If we use npm on root, run npm install.  Don't use `--production` here, as we
 # may need devDependencies (e.g. webpack) in order to build the meteor app.
 if [ -e "$APP_SOURCE_DIR"/package.json ]; then
+  $METEOR_NPM install -g yarn
+  
+
+
   cd "$APP_SOURCE_DIR"/packages/tdb-elasticsearch
   echo "Installing dependendencies for tdb-elasticsearch";
   yarn
