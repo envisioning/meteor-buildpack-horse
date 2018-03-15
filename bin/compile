@@ -179,11 +179,11 @@ fi
 if [ -e "$APP_SOURCE_DIR"/package.json ]; then
   cd "$APP_SOURCE_DIR"/packages/tdb-elasticsearch
   echo "Installing dependendencies for tdb-elasticsearch";
-  $METEOR_NPM install
+  yarn
 
   cd "$APP_SOURCE_DIR"
-  echo "Running npm install...";
-  $METEOR_NPM install
+  echo "Running yarn install...";
+  yarn
 fi
 
 # Related to https://github.com/meteor/meteor/issues/2796 and
