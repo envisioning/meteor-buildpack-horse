@@ -103,6 +103,9 @@ else
   echo "-----> Installing meteor"
   curl -sS "https://install.meteor.com/" | HOME="$METEOR_DIR" /bin/sh
 fi
+
+npm install -g yarn
+
 # Function to execute meteor with proper HOME.
 function METEOR {
   ARGS=$@
