@@ -181,11 +181,6 @@ if [ -e "$APP_SOURCE_DIR"/package.json ]; then
   $METEOR_NPM install -g yarn
   
 
-
-  cd "$APP_SOURCE_DIR"/packages/tdb-elasticsearch
-  echo "Installing dependendencies for tdb-elasticsearch";
-  yarn
-
   cd "$APP_SOURCE_DIR"
   echo "Running yarn install...";
   yarn
